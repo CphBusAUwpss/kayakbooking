@@ -17,7 +17,7 @@
     </head>
     <body>
 
-        <% if (request.getAttribute("user") == null) { %>
+        <% if (session.getAttribute("user") == null) { %>
         Du skal først logge ind <a href="login.jsp">Gå til login siden</a>
         <% } else {
             User user = (User) request.getAttribute("user");
