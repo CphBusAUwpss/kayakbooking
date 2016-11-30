@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.List, control.ControlFacade, control.Kayak, control.User" %>
+<%@page import="java.util.List, model.DataFacade, model.entity.Kayak, model.entity.User" %>
 <!DOCTYPE html>
 <html>
     <head>

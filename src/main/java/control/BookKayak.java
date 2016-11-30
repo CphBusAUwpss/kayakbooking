@@ -1,6 +1,5 @@
 package control;
 
-import model.entity.ControlFacade;
 import model.entity.exceptions.BookingNotPossibleException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.DataFacade;
 
 /**
  *
@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name="BookKayak", urlPatterns={"/BookKayak"})
 public class BookKayak extends HttpServlet {
-   ControlFacade cf = new ControlFacade();
+   DataFacade cf = new DataFacade();
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request

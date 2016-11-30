@@ -1,6 +1,6 @@
 package control;
 
-import model.entity.ControlFacade;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.DataFacade;
 
 /**
  *
@@ -15,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name="Login", urlPatterns={"/Login"})
 public class Login extends HttpServlet {
-    ControlFacade cf = new ControlFacade();
+    DataFacade cf = new DataFacade();
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
@@ -30,7 +31,7 @@ public class Login extends HttpServlet {
         String password = request.getParameter("password");
         if(cf.authenticate(username, password)){
             request.setAttribute("kayaks", cf.getAllKayaks());
-            request.setAttribute("user", cf.getUserByName(username));
+            request.setAttribute("user", cf.getUserFromName(username));
             request.getRequestDispatcher("showkayaks.jsp").forward(request, response);
             
         } else {

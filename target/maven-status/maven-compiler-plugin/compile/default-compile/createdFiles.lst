@@ -1,15 +1,5 @@
-control\ControlFacade.class
-view\BookKayak.class
 model\UserMapper.class
-control\Kayak.class
-view\KayakServlet.class
 model\DataFacade.class
-view\BookingServlet.class
 model\KayakMapper.class
-view\Login.class
-control\Booking.class
-control\User.class
 model\BookingMapper.class
 model\DB.class
-control\exceptions\BookingNotPossibleException.class
-view\ImageViewer.class

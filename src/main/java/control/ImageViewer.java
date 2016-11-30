@@ -1,7 +1,5 @@
 package control;
 
-import model.entity.ControlFacade;
-import model.entity.Kayak;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -10,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.DataFacade;
 
 /**
  *
@@ -17,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name="ImageViewer", urlPatterns={"/ImageViewer"})
 public class ImageViewer extends HttpServlet {
-   ControlFacade cf = new ControlFacade();
+   DataFacade cf = new DataFacade();
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
