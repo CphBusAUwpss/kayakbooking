@@ -14,7 +14,7 @@ import model.DataFacade;
  *
  * @author Thomas Hartmann - tha@cphbusiness.dk created on Nov 11, 2016
  */
-@WebServlet(name="Login", urlPatterns={"/Login"})
+@WebServlet(name="Login", urlPatterns={"/Login", "/index.html"})
 public class Login extends HttpServlet {
     DataFacade cf = new DataFacade();
     /** 
@@ -27,6 +27,8 @@ public class Login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        if(request.getParameter("username")==null)
+            response.sendRedirect("login.jsp");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         if(cf.authenticate(username, password)){
