@@ -1,4 +1,4 @@
-package model;
+package model.dataaccess;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,7 +12,7 @@ import java.sql.Statement;
  */
 public class DB {
     public static final String driver = "com.mysql.jdbc.Driver";
-    public static final String url = "jdbc:mysql://localhost/test";
+    public static final String url = "jdbc:mysql://localhost:3306/kayakbooking";
     public static final String username = "root";
     public static final String password = "root";
     

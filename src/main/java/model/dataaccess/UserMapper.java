@@ -1,6 +1,6 @@
-package model;
+package model.dataaccess;
 
-import model.entity.User;
+import model.domain.entity.User;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

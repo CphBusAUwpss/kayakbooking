@@ -1,9 +1,9 @@
-package model;
+package model.dataaccess;
 
-import model.entity.Booking;
-import model.entity.Kayak;
-import model.entity.User;
-import model.entity.exceptions.BookingNotPossibleException;
+import model.domain.entity.Booking;
+import model.domain.entity.Kayak;
+import model.domain.entity.User;
+import model.domain.entity.exceptions.BookingNotPossibleException;
 import java.util.Date;
 import java.util.List;
 
@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Thomas Hartmann - tha@cphbusiness.dk created on Nov 10, 2016
  */
-public class DataFacade {
+public class DataFacade implements DataFacadeIF {
 
     BookingMapper bm = new BookingMapper();
     KayakMapper km = new KayakMapper();
@@ -45,27 +45,35 @@ public class DataFacade {
         System.out.println("testing getUser() with id: 1");
         System.out.println(df.getUser(1));
     }
+    @Override
     public List<Booking> getAllBookings(){
         return bm.getAllBookings();
     }
+    @Override
     public void makeBooking(Kayak kayak, User user, Date date) throws BookingNotPossibleException{
         bm.makeBooking(kayak, user, date);
     }
+    @Override
     public List<Kayak> getAllKayaks(){
         return km.getAllKayaks();
     }
+    @Override
     public Kayak getKayak(int id){
         return km.getKayak(id);
     }
+    @Override
     public List<User> getAllUsers(){
         return um.getAllUsers();
     }
+    @Override
     public User getUser(int id){
        return um.getUser(id);
     }
+    @Override
     public boolean authenticate(String username, String password){
         return um.authenticate(username, password);
     }
+    @Override
     public User getUserFromName(String username){
         return um.getUserByName(username);
     }

@@ -1,7 +1,7 @@
 package control;
 
-import model.entity.Booking;
-import model.entity.User;
+import model.domain.entity.Booking;
+import model.domain.entity.User;
 import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
@@ -10,7 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.BookingMapper;
+import model.dataaccess.BookingMapper;
 
 /**
  *

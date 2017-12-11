@@ -1,6 +1,6 @@
-package model;
+package model.dataaccess;
 
-import model.entity.Kayak;
+import model.domain.entity.Kayak;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +34,7 @@ public class KayakMapper {
                 String color = rs.getString("color");
                 double length = rs.getDouble("length");
                 InputStream in = rs.getBinaryStream("image");
+                
                 kayak = new Kayak(kayakid, name, model, desc, color, length, in);
                 
             }
@@ -66,6 +68,35 @@ public class KayakMapper {
         }
         return kayaks;
     }
+    public void createKayak(Kayak kayak){
+        try {
+            String sql = "INSERT INTO kayak (name, model, description, color, length) VALUES (?,?,?,?,?)";
+            PreparedStatement pstmt = DB.getConnection().prepareStatement(sql);
+            pstmt.setString(1, kayak.getName());
+            pstmt.setString(2, kayak.getModel());
+            pstmt.setString(3, kayak.getDescription());
+            pstmt.setString(4, kayak.getColor());
+            pstmt.setDouble(5, kayak.getLength());
+            pstmt.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+//    private void inserImg2(Kayak kayak, String pathname){
+//    String sql = "UPDATE kayak SET image = "+pathname+" WHERE id = "+kayak.getId();
+//        try {
+//            Statement stmt = DB.getConnection().createStatement();
+//            stmt.execute(sql);
+//            
+//            
+//        } catch (FileNotFoundException ex) {
+//            ex.printStackTrace();
+//        } catch (IOException ex) {
+//            ex.printStackTrace();
+//        } catch (SQLException ex) {
+//            ex.printStackTrace();
+//        }
+//    }
     private void insertImg(String pathname, Kayak kayak){
         String sql = "UPDATE kayak SET image = ? WHERE id = ?";
         try {
@@ -86,11 +117,12 @@ public class KayakMapper {
     }
     public static void main(String[] args) {
         KayakMapper km = new KayakMapper();
-        String path = "C:\\Users\\tha\\GitRepos\\AU\\WPSS\\kayakapp\\src\\main\\webapp\\img\\";
-        String[] images = {"k1.jpg", "k2.jpg", "k3.jpg", "k4.jpg", "k5.jpg", "k6.jpg", "k7.jpg"};
-        for (int i = 0; i < km.getAllKayaks().size(); i++) {
-            System.out.println(images[i]);
-            km.insertImg(path+images[i], km.getKayak(i+1));
-        }
+//        String path = "C:\\Users\\tha\\GitRepos\\AU\\WPSS\\kayakapp\\src\\main\\webapp\\img\\";
+//        String[] images = {"k1.jpg", "k2.jpg", "k3.jpg", "k4.jpg", "k5.jpg", "k6.jpg", "k7.jpg"};
+//        for (int i = 0; i < km.getAllKayaks().size(); i++) {
+//            System.out.println(images[i]);
+//            km.insertImg(path+images[i], km.getKayak(i+1));
+//        }
+        km.createKayak(new Kayak("Hansen", "Solo", "Low", "red", 4.5, null));
     }
 }

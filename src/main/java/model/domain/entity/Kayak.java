@@ -1,4 +1,4 @@
-package model.entity;
+package model.domain.entity;
 
 import java.io.InputStream;
 

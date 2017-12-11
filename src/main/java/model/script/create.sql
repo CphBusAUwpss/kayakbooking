@@ -2,7 +2,8 @@
  * Author:  Thomas Hartmann - tha@cphbusiness.dk
  * Created: Nov 11, 2016
  */
-use test;
+-- create database kayakbooking;
+use kayakbooking;
 
 drop table if exists image;
 drop table if exists booking;

@@ -1,6 +1,6 @@
 package control;
 
-import model.entity.exceptions.BookingNotPossibleException;
+import model.domain.entity.exceptions.BookingNotPossibleException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DateFormat;
@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.DataFacade;
+import model.dataaccess.DataFacade;
 
 /**
  *

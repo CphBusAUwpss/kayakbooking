@@ -1,9 +1,9 @@
-package model;
+package model.dataaccess;
 
-import model.entity.Booking;
-import model.entity.Kayak;
-import model.entity.User;
-import model.entity.exceptions.BookingNotPossibleException;
+import model.domain.entity.Booking;
+import model.domain.entity.Kayak;
+import model.domain.entity.User;
+import model.domain.entity.exceptions.BookingNotPossibleException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
