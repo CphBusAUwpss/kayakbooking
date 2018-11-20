@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.List, model.DataFacade, model.entity.Kayak, model.entity.User" %>
+<%@page import="java.util.List, model.dataaccess.DataFacade, model.domain.entity.Kayak, model.domain.entity.User" %>
 <!DOCTYPE html>
 <html>
     <head>

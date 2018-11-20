@@ -12,7 +12,7 @@ import java.sql.Statement;
  */
 public class DB {
     public static final String driver = "com.mysql.jdbc.Driver";
-    public static final String url = "jdbc:mysql://localhost:3306/kayakbooking";
+    public static final String url = "jdbc:mysql://localhost:3306/kayakdb";
     public static final String username = "root";
     public static final String password = "root";
     

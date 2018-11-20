@@ -16,7 +16,7 @@ import model.dataaccess.DataFacade;
  */
 @WebServlet(name="Login", urlPatterns={"/Login", "/index.html"})
 public class Login extends HttpServlet {
-    DataFacade cf = new DataFacade();
+    DataFacade df = new DataFacade();
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
@@ -31,9 +31,9 @@ public class Login extends HttpServlet {
             response.sendRedirect("login.jsp");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        if(cf.authenticate(username, password)){
-            request.setAttribute("kayaks", cf.getAllKayaks());
-            request.setAttribute("user", cf.getUserFromName(username));
+        if(df.authenticate(username, password)){
+            request.setAttribute("kayaks", df.getAllKayaks());
+            request.setAttribute("user", df.getUserFromName(username));
             request.getRequestDispatcher("showkayaks.jsp").forward(request, response);
             
         } else {
